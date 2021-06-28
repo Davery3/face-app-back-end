@@ -21,11 +21,17 @@ req.body.input)
 
 const db = knex({
   client: 'pg',
+  host : '127.0.0.1',
+  user : 'postgres',
+  password : 'Jesus3740!',
+  database : 'smartbrain',
   connection: {
-    host : '127.0.0.1',
-    user : 'postgres',
-    password : 'Jesus3740!',
-    database : 'smartbrain'
+    connection: {
+      connectionString: process.env.DATABASE_URL,
+      ssl: {
+        rejectUnauthorized: false,
+      }
+    }
   }
 });
 
