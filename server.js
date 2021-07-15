@@ -41,9 +41,7 @@ app.get('/', (req, res) => {
 app.post('/signin', (req, res) => {
 const { email, password } = req.body;
   if (!email || !password) {
-    return res.status(400).json('Incorrect form submission')
-    alert('Incorrect form submission')
-  /*  return res.status(400).json('Incorrect form submission');*/
+    return res.status(400).json('Incorrect form submission');
   }
   db.select('email', 'hash').from('login')
   .where('email', '=', email)
